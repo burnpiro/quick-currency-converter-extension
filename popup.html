@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="topbar">
+        <div>
+          <h1>Currency</h1>
+          <p id="rate-meta">Opening rates...</p>
+        </div>
+        <button id="refresh-button" class="icon-button" type="button" title="Refresh rates" aria-label="Refresh rates">
+          <span aria-hidden="true">↻</span>
+        </button>
+      </header>
+
+      <section class="add-currency" aria-label="Add currency">
+        <label for="currency-search">Add currency</label>
+        <div class="search-row">
+          <input
+            id="currency-search"
+            type="search"
+            list="currency-options"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Search code or name"
+          >
+          <button id="add-button" type="button">Add</button>
+        </div>
+        <datalist id="currency-options"></datalist>
+      </section>
+
+      <section id="currency-list" class="currency-list" aria-label="Selected currencies"></section>
+
+      <p id="status" class="status" role="status"></p>
+    </main>
+
+    <template id="currency-row-template">
+      <article class="currency-row">
+        <div class="currency-info">
+          <strong class="currency-code"></strong>
+          <span class="currency-name"></span>
+        </div>
+        <input class="currency-input" inputmode="decimal" autocomplete="off" aria-label="">
+        <button class="drag-handle" type="button" title="Drag to reorder" aria-label="">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <button class="remove-button" type="button" title="Remove currency" aria-label="">
+          <span aria-hidden="true">×</span>
+        </button>
+      </article>
+    </template>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
